@@ -22,6 +22,12 @@ RUN	echo "add needed tools" && \
 #RUN apk add --no-cache cmark --repository http://nl.alpinelinux.org/alpine/edge/testing && \
 #    apk add --no-cache --allow-untrusted pandoc --repository https://conoria.gitlab.io/alpine-pandoc/
 
+# Add mermaid
+RUN apk add --no-cache npm && \
+    npm install @mermaid-js/mermaid-cli && \
+    export PATH=$PATH:/node_modules/.bin/
+
+
 SHELL ["/bin/bash", "-c"]
 
 RUN echo "Install sdkman" &&\
